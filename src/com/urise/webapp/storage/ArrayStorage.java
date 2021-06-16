@@ -1,3 +1,7 @@
+package com.urise.webapp.storage;
+
+import com.urise.webapp.model.Resume;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -6,15 +10,23 @@ import java.util.List;
  * Array based storage for Resumes
  */
 public class ArrayStorage {
-    Resume[] storage = new Resume[10000];
+    private Resume[] storage = new Resume[10000];
     private int size = 0;
 
-    void clear() {
+    public Resume[] getStorage() {
+        return storage;
+    }
+
+    public void setStorage(Resume[] storage) {
+        this.storage = storage;
+    }
+
+    public void clear() {
         storage = new Resume[10000];
         this.size = 0;
     }
 
-    void save(Resume r) {
+    public void save(Resume r) {
         //TODO check if resume not present
         storage[size] = r;
         size++;
@@ -25,23 +37,23 @@ public class ArrayStorage {
         System.out.printf("ERROR");
     }
 
-    Resume get(String uuid) {
+    public Resume get(String uuid) {
         for (int i = 0; i < size; i++) {
             if (storage[i] == null) break;
 
-            if (storage[i].uuid.equals(uuid)) {
+            if (storage[i].getUuid().equals(uuid)) {
                 return storage[i];
             }
         }
         return null;
     }
 
-    void delete(String uuid) {
+    public void delete(String uuid) {
         //TODO check if resume present
         List<Resume> result = new LinkedList<>();
 
         for (int i = 0; i < size; i++) {
-            if (!uuid.equals(storage[i].uuid)) {
+            if (!uuid.equals(storage[i].getUuid())) {
                 result.add(storage[i]);
             }
         }
@@ -54,12 +66,7 @@ public class ArrayStorage {
     /**
      * @return array, contains only Resumes in storage (without null)
      */
-    Resume[] getAll() {
-        if (storage[0] == null) {
-            System.out.println("Empty");
-            return null;
-        }
-
+    public Resume[] getAll() {
         List<Resume> result = new ArrayList<>();
 
         for (int i = 0; i < size; i++) {
@@ -69,7 +76,7 @@ public class ArrayStorage {
         return result.toArray(new Resume[result.size()]);
     }
 
-    int size() {
+    public int size() {
         return this.size;
     }
 }
