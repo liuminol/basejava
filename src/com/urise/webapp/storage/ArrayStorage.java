@@ -27,13 +27,18 @@ public class ArrayStorage {
     }
 
     public void save(Resume r) {
-        //TODO check if resume not present
+        if (checkExistenceInStorage(r)) {
+            System.out.println("ERROR: the resume existence yet in storage");
+            return;
+        }
+
         storage[size] = r;
         size++;
     }
 
     public void update(Resume r) {
         //TODO check if resume present
+
         System.out.printf("ERROR");
     }
 
@@ -49,7 +54,11 @@ public class ArrayStorage {
     }
 
     public void delete(String uuid) {
-        //TODO check if resume present
+        if (!checkExistenceInStorage(new Resume(uuid))) {
+            System.out.println("ERROR; storage hasn't a resume with this uuid");
+            return;
+        }
+
         List<Resume> result = new LinkedList<>();
 
         for (int i = 0; i < size; i++) {
@@ -60,7 +69,7 @@ public class ArrayStorage {
 
         size--;
 
-        storage = (Resume[]) result.toArray(new Resume[result.size()]);
+        storage = result.toArray(new Resume[result.size()]);
     }
 
     /**
@@ -78,5 +87,17 @@ public class ArrayStorage {
 
     public int size() {
         return this.size;
+    }
+
+    /**
+     *
+     * check whether existence added resume in storage
+     */
+    private boolean checkExistenceInStorage(Resume r) {
+        for (int i = 0; i < size; i++) {
+            if (storage[i].equals(r)) return true;
+        }
+
+        return false;
     }
 }
