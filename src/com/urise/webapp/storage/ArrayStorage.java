@@ -37,9 +37,13 @@ public class ArrayStorage {
     }
 
     public void update(Resume r) {
-        //TODO check if resume present
+        int index = getIndex(r);
 
-        System.out.printf("ERROR");
+        if (index != -1) {
+            storage[index] = r;
+        } else {
+            System.out.println("ERROR: this resume not exist");
+        }
     }
 
     public Resume get(String uuid) {
@@ -50,12 +54,14 @@ public class ArrayStorage {
                 return storage[i];
             }
         }
+
+        System.out.println("ERROR: resume with this uuid not exist");
         return null;
     }
 
     public void delete(String uuid) {
         if (!checkExistenceInStorage(new Resume(uuid))) {
-            System.out.println("ERROR; storage hasn't a resume with this uuid");
+            System.out.println("ERROR: storage hasn't a resume with this uuid");
             return;
         }
 
@@ -68,7 +74,6 @@ public class ArrayStorage {
         }
 
         size--;
-
         storage = result.toArray(new Resume[result.size()]);
     }
 
@@ -99,5 +104,17 @@ public class ArrayStorage {
         }
 
         return false;
+    }
+
+    /**
+     *
+     * returns the index of existing resume or -1 if not
+     */
+    private int getIndex(Resume r) {
+        for (int i = 0; i < size; i++) {
+            if (storage[i].equals(r)) return i;
+        }
+
+        return -1;
     }
 }
