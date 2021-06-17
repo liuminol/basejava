@@ -9,11 +9,7 @@ import java.util.List;
 /**
  * Array based storage for Resumes
  */
-public class ArrayStorage implements Storage {
-    private static final int STORAGE_LIMIT = 10000;
-    private Resume[] storage = new Resume[STORAGE_LIMIT];
-    private int size = 0;
-
+public class ArrayStorage extends AbstractArrayStorage {
     public Resume[] getStorage() {
         return storage;
     }
@@ -92,12 +88,7 @@ public class ArrayStorage implements Storage {
         return result.toArray(new Resume[result.size()]);
     }
 
-    public int size() {
-        return this.size;
-    }
-
     /**
-     *
      * check whether existence added resume in storage
      */
     private boolean checkExistenceInStorage(Resume r) {
@@ -109,7 +100,6 @@ public class ArrayStorage implements Storage {
     }
 
     /**
-     *
      * returns the index of existing resume or -1 if not
      */
     private int getIndex(Resume r) {
