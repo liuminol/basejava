@@ -10,19 +10,21 @@ import java.util.List;
  * Array based storage for Resumes
  */
 public class ArrayStorage {
-    private Resume[] storage = new Resume[10000];
+    private static final int STORAGE_LIMIT = 10000;
+    private Resume[] storage = new Resume[STORAGE_LIMIT];
     private int size = 0;
 
     public Resume[] getStorage() {
         return storage;
     }
 
+
     public void setStorage(Resume[] storage) {
         this.storage = storage;
     }
 
     public void clear() {
-        storage = new Resume[10000];
+        storage = new Resume[STORAGE_LIMIT];
         this.size = 0;
     }
 
