@@ -14,7 +14,6 @@ public class ArrayStorage extends AbstractArrayStorage {
         return storage;
     }
 
-
     public void setStorage(Resume[] storage) {
         this.storage = storage;
     }
@@ -35,26 +34,13 @@ public class ArrayStorage extends AbstractArrayStorage {
     }
 
     public void update(Resume r) {
-        int index = getIndex(r);
+        int index = getIndex(r.getUuid());
 
         if (index != -1) {
             storage[index] = r;
         } else {
             System.out.println("ERROR: this resume not exist");
         }
-    }
-
-    public Resume get(String uuid) {
-        for (int i = 0; i < size; i++) {
-            if (storage[i] == null) break;
-
-            if (storage[i].getUuid().equals(uuid)) {
-                return storage[i];
-            }
-        }
-
-        System.out.println("ERROR: resume with this uuid not exist");
-        return null;
     }
 
     public void delete(String uuid) {
@@ -102,9 +88,9 @@ public class ArrayStorage extends AbstractArrayStorage {
     /**
      * returns the index of existing resume or -1 if not
      */
-    private int getIndex(Resume r) {
+    protected int getIndex(String uuid) {
         for (int i = 0; i < size; i++) {
-            if (storage[i].equals(r)) return i;
+            if (storage[i].getUuid().equals(uuid)) return i;
         }
 
         return -1;
