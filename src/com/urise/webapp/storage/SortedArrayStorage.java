@@ -6,26 +6,6 @@ import java.util.Arrays;
 
 public class SortedArrayStorage extends AbstractArrayStorage {
 
-//    @Override
-//    public void save(Resume r) {
-//        if (size == 0) {
-//            storage[0] = r;
-//            size++;
-//            return;
-//        }
-//
-//        int index = getIndex(r.getUuid());
-//        if (index >= 0) {
-//            System.out.println("ERROR: the resume existence yet in storage");
-//            return;
-//        }
-//
-//        index = Math.abs(index) - 1;
-//        size++;
-//
-//        insertResume(r, index);
-//    }
-
     @Override
     protected void fillDeletedElement(int index) {
         int numMoved = size - index - 1;
