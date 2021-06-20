@@ -28,24 +28,4 @@ public class SortedArrayStorage extends AbstractArrayStorage {
         System.arraycopy(storage, insertInd, storage, insertInd + 1, size - insertInd);
         storage[insertInd] = r;
     }
-
-    /**
-     * insert Resume in sorted array storage by index
-     *
-     * @param r     - inserted resume
-     * @param index - index where resume will be inserted
-     */
-    private void insertResume(Resume r, int index) {
-        Resume[] result = new Resume[STORAGE_LIMIT];
-        for (int i = 0; i < index; i++) {
-            result[i] = storage[i];
-        }
-
-        result[index] = r;
-        for (int i = index + 1; i < size; i++) {
-            result[i] = storage[i - 1];
-        }
-
-        storage = result.clone();
-    }
 }
