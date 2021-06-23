@@ -11,7 +11,6 @@ import java.util.List;
  */
 public interface Storage {
 
-
     void clear();
 
     void save(Resume r);
