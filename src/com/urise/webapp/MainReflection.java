@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 
 public class MainReflection  {
     public static void main(String[] args) throws IllegalAccessException, NoSuchMethodException {
-        Resume r = new Resume();
+        Resume r = new Resume("null");
         Class<? extends Resume> resumeClass = r.getClass();
 
         System.out.println("Classname: " + resumeClass.getSimpleName()); //get simple classname

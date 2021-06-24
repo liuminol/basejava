@@ -1,8 +1,5 @@
 package com.urise.webapp.storage;
 
-import com.urise.webapp.exception.ExistStorageException;
-import com.urise.webapp.exception.NotExistStorageException;
-import com.urise.webapp.exception.StorageException;
 import com.urise.webapp.model.Resume;
 
 import java.util.ArrayList;
@@ -17,8 +14,8 @@ public class ListStorage extends AbstractStorage {
     }
 
     @Override
-    public Resume[] getAll() {
-        return list.toArray(new Resume[this.size()]);
+    public List<Resume> doCopyAll() {
+        return new ArrayList<>(list);
     }
 
     @Override
@@ -33,8 +30,6 @@ public class ListStorage extends AbstractStorage {
 
     @Override
     protected Integer getSearchKey(String uuid) {
-        Resume r = new Resume(uuid);
-
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getUuid().equals(uuid)) return i;
         }
@@ -61,4 +56,5 @@ public class ListStorage extends AbstractStorage {
     protected Resume doGet(Object searchKey) {
         return list.get((Integer) searchKey);
     }
+
 }
