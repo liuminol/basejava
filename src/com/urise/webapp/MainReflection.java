@@ -13,7 +13,7 @@ public class MainReflection  {
 
         System.out.println("Classname: " + resumeClass.getSimpleName()); //get simple classname
 
-        System.out.println("Package: " + resumeClass.getPackageName()); //get package info
+        System.out.println("Package: " + resumeClass.getPackage()); //get package info
 
         System.out.println("Super: " + resumeClass.getSuperclass()); //get super class
 

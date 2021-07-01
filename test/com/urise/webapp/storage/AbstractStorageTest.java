@@ -36,32 +36,32 @@ public abstract class AbstractStorageTest {
         R3 = new Resume(UUID_3, FULL_NAME_3);
         R4 = new Resume(UUID_4, FULL_NAME_4);
 
-        R1.addContact(ContactType.PHONE, "+111111111111");
-        R1.addContact(ContactType.MAIL, "mail@yandex.ru");
-        R1.addContact(ContactType.LINKEDIN, null);
-        R1.addContact(ContactType.GITHUB, "https://github.com/liuminol");
-        R1.addContact(ContactType.STACKOVERFLOW, null);
-        R1.addContact(ContactType.HOME_PAGE, "https://liuminol.github.io");
-        R1.addSection(SectionType.OBJECTIVE, new TextSection("Красив, одинок и неплатежеспособен"));
-        R1.addSection(SectionType.PERSONAL, new TextSection("Personal data"));
-        R1.addSection(SectionType.ACHIEVEMENT, new ListSection("JavaRush 27 уровень", "Создание веб-приложения - хранилище резюме в процессе обучения на курсе Javaops-Base"));
-        R1.addSection(SectionType.QUALIFICATIONS, new ListSection("Java Core, Java Collections, Exceptions", "Git", "IntelliJ IDEA", "JUnit", "ООП"));
-        R1.addSection(SectionType.EXPERIENCE,
+        R2.addContact(ContactType.PHONE, "+111111111111");
+        R2.addContact(ContactType.MAIL, "mail@yandex.ru");
+        R2.addContact(ContactType.LINKEDIN, null);
+        R2.addContact(ContactType.GITHUB, "https://github.com/liuminol");
+        R2.addContact(ContactType.STACKOVERFLOW, null);
+        R2.addContact(ContactType.HOME_PAGE, "https://liuminol.github.io");
+        R2.addSection(SectionType.OBJECTIVE, new TextSection("Красив, одинок и неплатежеспособен"));
+        R2.addSection(SectionType.PERSONAL, new TextSection("Personal data"));
+        R2.addSection(SectionType.ACHIEVEMENT, new ListSection("JavaRush 27 уровень", "Создание веб-приложения - хранилище резюме в процессе обучения на курсе Javaops-Base"));
+        R2.addSection(SectionType.QUALIFICATIONS, new ListSection("Java Core, Java Collections, Exceptions", "Git", "IntelliJ IDEA", "JUnit", "ООП"));
+        R2.addSection(SectionType.EXPERIENCE,
                 new OrganizationSection(
                         new Organization("Organization11", "http://organization11.com",
                                 new Organization.Position(2005, Month.JANUARY, "position1", "content1"),
                                 new Organization.Position(2001, Month.MARCH, 2005, Month.JANUARY, "position2", "content2"))));
-        R1.addSection(SectionType.EDUCATION,
+        R2.addSection(SectionType.EDUCATION,
                 new OrganizationSection(
                         new Organization("Institute", null,
                                 new Organization.Position(1996, Month.JANUARY, 2000, Month.DECEMBER, "aspirant", null),
                                 new Organization.Position(2001, Month.MARCH, 2005, Month.JANUARY, "student", "IT facultet")),
                         new Organization("Organization12", "http://organization12.ru")));
 
-        R2.addContact(ContactType.PHONE, "+222222");
-        R2.addContact(ContactType.MAIL, "mail@gmail.com");
-        R2.addContact(ContactType.SKYPE, "skype");
-        R1.addSection(SectionType.EXPERIENCE,
+        R3.addContact(ContactType.PHONE, "+222222");
+        R3.addContact(ContactType.MAIL, "mail@gmail.com");
+        R3.addContact(ContactType.SKYPE, "skype");
+        R3.addSection(SectionType.EXPERIENCE,
                 new OrganizationSection(
                         new Organization("Organization12", "http://organization12.com",
                                 new Organization.Position(2015, Month.JANUARY, "position1", "content1"))));
