@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class MainFile {
+    private static int counter = 0;
     public static void main(String[] args) {
         String filePath = ".\\.gitignore";
         File file = new File(filePath);
@@ -17,7 +18,6 @@ public class MainFile {
         //____________________________________________
 
         File dir = new File("C:/java/basejava/src");
-        System.out.println(dir.isDirectory());
         printDirectoryDeeply(dir);
 
         //____________________________________________
@@ -28,18 +28,31 @@ public class MainFile {
         }
     }
 
-    //TODO make pretty output
     public static void printDirectoryDeeply(File dir) {
+
+
         File[] files = dir.listFiles();
         if (files != null) {
             for (File file : files) {
                 if (file.isFile()) {
-                    System.out.println("File: " + file.getName());
+                    printMargin(counter);
+                    System.out.println("F: " + file.getName());
                 } else if (file.isDirectory()){
-                    System.out.println("Directory: " + file.getName());
+                    printMargin(counter);
+                    System.out.println("D: " + file.getName());
+                    counter++;
                     printDirectoryDeeply(file);
                 }
             }
+            counter--;
+        }
+    }
+
+    private static void printMargin(int counter) {
+        String margin = "   ";
+
+        for (int i = 0; i < counter; i++) {
+            System.out.print(margin);
         }
     }
 }
