@@ -24,6 +24,10 @@ public class OrganizationSection extends Section {
         this.organizations = organizations;
     }
 
+    public List<Organization> getOrganizations() {
+        return organizations;
+    }
+
     @Override
     public String toString() {
         return "OrganizationSection{" +
