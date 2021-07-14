@@ -1,5 +1,6 @@
 package com.urise.webapp.storage;
 
+import com.urise.webapp.Config;
 import com.urise.webapp.exception.ExistStorageException;
 import com.urise.webapp.exception.NotExistStorageException;
 import com.urise.webapp.model.*;
@@ -10,23 +11,24 @@ import java.io.File;
 import java.time.Month;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 import static org.junit.Assert.*;
 
 public abstract class AbstractStorageTest {
-    protected static final File STORAGE_DIR = new File("C:/java/basejava/storage");
+    protected static final File STORAGE_DIR = Config.get().getStorageDir();
 
     protected Storage storage;
-    private static final String UUID_1 = "uuid1";
+    private static final String UUID_1 = UUID.randomUUID().toString();
     private static final String FULL_NAME_1 = "Name1";
     private static final Resume R1;
-    private static final String UUID_2 = "uuid2";
+    private static final String UUID_2 = UUID.randomUUID().toString();
     private static final String FULL_NAME_2 = "Name2";
     private static final Resume R2;
-    private static final String UUID_3 = "uuid3";
+    private static final String UUID_3 = UUID.randomUUID().toString();
     private static final String FULL_NAME_3 = "Name3";
     private static final Resume R3;
-    private static final String UUID_4 = "uuid4";
+    private static final String UUID_4 = UUID.randomUUID().toString();
     private static final String FULL_NAME_4 = "Name4";
     private static final Resume R4;
 
@@ -36,7 +38,7 @@ public abstract class AbstractStorageTest {
         R3 = new Resume(UUID_3, FULL_NAME_3);
         R4 = new Resume(UUID_4, FULL_NAME_4);
 
-        R1.addContact(ContactType.PHONE, "+111111111111");
+       /* R1.addContact(ContactType.PHONE, "+111111111111");
         R1.addContact(ContactType.MAIL, "mail@yandex.ru");
         R1.addContact(ContactType.LINKEDIN, "linkedin");
         R1.addContact(ContactType.GITHUB, "https://github.com/liuminol");
@@ -64,7 +66,7 @@ public abstract class AbstractStorageTest {
         R2.addSection(SectionType.EXPERIENCE,
                 new OrganizationSection(
                         new Organization("Organization12", "http://organization12.com",
-                                new Organization.Position(2015, Month.JANUARY, "position1", "content1"))));
+                                new Organization.Position(2015, Month.JANUARY, "position1", "content1"))));*/
     }
 
     protected AbstractStorageTest(Storage storage) {
