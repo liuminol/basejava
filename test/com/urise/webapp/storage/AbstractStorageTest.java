@@ -47,11 +47,11 @@ public abstract class AbstractStorageTest {
         R1.addContact(ContactType.HOME_PAGE, "https://liuminol.github.io");
         R4.addContact(ContactType.SKYPE, "Skype");
         R4.addContact(ContactType.PHONE, "4444");
-/*        R1.addSection(SectionType.OBJECTIVE, new TextSection("Красив, одинок и неплатежеспособен"));
+        R1.addSection(SectionType.OBJECTIVE, new TextSection("Красив, одинок и неплатежеспособен"));
         R1.addSection(SectionType.PERSONAL, new TextSection("Personal data"));
         R1.addSection(SectionType.ACHIEVEMENT, new ListSection("JavaRush 27 уровень", "Создание веб-приложения - хранилище резюме в процессе обучения на курсе Javaops-Base"));
         R1.addSection(SectionType.QUALIFICATIONS, new ListSection("Java Core, Java Collections, Exceptions", "Git", "IntelliJ IDEA", "JUnit", "ООП"));
-        R1.addSection(SectionType.EXPERIENCE,
+ /*        R1.addSection(SectionType.EXPERIENCE,
                 new OrganizationSection(
                         new Organization("Organization11", "http://organization11.com",
                                 new Organization.Position(2005, Month.JANUARY, "position1", "content1"),
